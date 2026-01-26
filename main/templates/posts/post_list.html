@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Инструкции{% endblock %}
+
+{% block content %}
+    <h2>Инструкции</h2>
+
+    {% for post in posts %}
+        <div class="card">
+            <h3>
+                <a href="{% url 'post_detail' post.id %}">
+                    {{ post.title }}
+                </a>
+            </h3>
+
+            <div class="token">
+                Токен: {{ post.token.name }}
+            </div>
+
+            <p>
+                {{ post.content|truncatechars:200 }}
+            </p>
+
+            <a class="btn" href="{% url 'post_detail' post.id %}">
+                Открыть инструкцию
+            </a>
+        </div>
+    {% empty %}
+        <p>Инструкций пока нет.</p>
+    {% endfor %}
+{% endblock %}

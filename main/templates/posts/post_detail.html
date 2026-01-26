@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h2>{{ post.title }}</h2>
+
+        <div class="token">
+            Токен: {{ post.token.name }}
+        </div>
+
+        <p>
+            {{ post.content|linebreaks }}
+        </p>
+
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="Скриншот">
+        {% endif %}
+
+        {% if post.driver_link %}
+            <p>
+                <a class="btn" href="{{ post.driver_link }}" target="_blank">
+                    Скачать драйвер
+                </a>
+            </p>
+        {% endif %}
+    </div>
+
+    <p>
+        <a href="{% url 'post_list' %}">← Назад к списку</a>
+    </p>
+{% endblock %}
