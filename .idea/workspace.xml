@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abb7830c-aebc-41d4-a0a7-2895ddb3fe02" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/posts/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/posts/post_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="abb7830c-aebc-41d4-a0a7-2895ddb3fe02" name="Changes" comment="Added categories and search on the name, slightly beauty" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,12 +60,36 @@
       <workItem from="1769447937725" duration="16000" />
       <workItem from="1769454425221" duration="226000" />
       <workItem from="1769526716207" duration="4477000" />
-      <workItem from="1769604644998" duration="2299000" />
+      <workItem from="1769604644998" duration="2706000" />
     </task>
+    <task id="LOCAL-00001" summary="Added categories and search on the name, slightly beauty">
+      <option name="closed" value="true" />
+      <created>1769607338577</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769607338577</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added categories and search on the name, slightly beauty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added categories and search on the name, slightly beauty" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TokenReference$admin.coverage" NAME="admin Coverage Results" MODIFIED="1769530567892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
