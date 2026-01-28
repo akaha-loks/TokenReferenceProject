@@ -7,56 +7,215 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Inter, Arial, sans-serif;
             margin: 0;
             background: #f5f6f8;
+            color: #2c3e50;
         }
+
         header {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            padding: 15px 30px;
+            padding: 18px 30px;
         }
+
         header h1 {
             margin: 0;
             font-size: 22px;
         }
+
         main {
             padding: 30px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
         }
-        .card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,.1);
-        }
+
         a {
             color: #2980b9;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
-        .token {
-            font-size: 14px;
-            color: #7f8c8d;
-        }
+
         .btn {
             display: inline-block;
             background: #2980b9;
             color: white;
-            padding: 10px 15px;
-            border-radius: 4px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background .2s;
         }
+
         .btn:hover {
             background: #1f6391;
         }
-        img {
-            max-width: 100%;
-            margin-top: 15px;
-            border-radius: 4px;
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,.06);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .token {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .token-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .token-filter a {
+            padding: 8px 14px;
+            background: #ecf0f1;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #2c3e50;
+            transition: all .2s;
+        }
+
+        .token-filter a.active,
+        .token-filter a:hover {
+            background: #2980b9;
+            color: white;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+            margin-bottom: 30px;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0,0,0,.12);
+        }
+
+        .post-cover {
+            width: 100%;
+            height: 260px;
+            background: #ecf0f1;
+            overflow: hidden;
+        }
+
+        .post-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-body {
+            padding: 24px;
+        }
+
+        .post-body h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .post-meta {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 14px;
+        }
+
+        .post-actions {
+            margin-top: 18px;
+        }
+
+        .post-list {
+            margin-top: 30px;
+        }
+
+        .post-card {
+            margin-bottom: 30px;
+        }
+
+        .post-card {
+            display: flex;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .post-cover {
+            width: 240px;
+            aspect-ratio: 1 / 1;
+            flex-shrink: 0;
+            background: #ecf0f1;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .post-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-body {
+            padding: 24px;
+            flex: 1;
+        }
+        .search-form { margin: 20px 0; }
+        .search-wrapper {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 50px 12px 16px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.2s;
+            box-sizing: border-box;
+        }
+
+        .search-input:focus {
+            border-color: #2980b9;
+            box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            border: none;
+            background: #2980b9;
+            color: white;
+            font-size: 16px;
+            padding: 0 16px;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background: #1f6391;
         }
     </style>
 </head>

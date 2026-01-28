@@ -3,29 +3,75 @@
 {% block title %}Инструкции{% endblock %}
 
 {% block content %}
-    <h2>Инструкции</h2>
 
-    {% for post in posts %}
-        <div class="card">
+<h2>Инструкции</h2>
+
+<form method="get" class="search-form">
+    <div class="search-wrapper">
+        <input
+            type="text"
+            name="q"
+            placeholder="Поиск инструкций..."
+            value="{{ query }}"
+            class="search-input"
+        >
+        <button type="submit" class="search-btn">
+            🔍
+        </button>
+    </div>
+</form>
+
+
+<div class="token-filter">
+    <a href="{% url 'post_list' %}"
+       class="{% if not selected_token %}active{% endif %}">
+        Все
+    </a>
+
+    {% for token in tokens %}
+        <a href="{% url 'post_list_by_token' token.id %}"
+           class="{% if selected_token == token.id %}active{% endif %}">
+            {{ token.name }}
+        </a>
+    {% endfor %}
+</div>
+
+<div class="post-list">
+{% for post in posts %}
+    <div class="post-card">
+
+        {% if post.image %}
+        <div class="post-cover">
+            <a href="{% url 'post_detail' post.id %}">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            </a>
+        </div>
+        {% endif %}
+
+        <div class="post-body">
             <h3>
                 <a href="{% url 'post_detail' post.id %}">
                     {{ post.title }}
                 </a>
             </h3>
 
-            <div class="token">
+            <div class="post-meta">
                 Токен: {{ post.token.name }}
             </div>
 
-            <p>
-                {{ post.content|truncatechars:200 }}
-            </p>
+            <p>{{ post.content|truncatechars:220 }}</p>
 
-            <a class="btn" href="{% url 'post_detail' post.id %}">
-                Открыть инструкцию
-            </a>
+            <div class="post-actions">
+                <a class="btn" href="{% url 'post_detail' post.id %}">
+                    Читать инструкцию →
+                </a>
+            </div>
         </div>
-    {% empty %}
-        <p>Инструкций пока нет.</p>
-    {% endfor %}
+
+    </div>
+{% empty %}
+    <p>Инструкций пока нет.</p>
+{% endfor %}
+</div>
+
 {% endblock %}
