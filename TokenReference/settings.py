@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,9 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bishkek'
 
 USE_I18N = True
 
@@ -120,3 +121,37 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Token Reference",
+    "site_header": "Token Reference",
+    "site_brand": "TokenReference",
+    "welcome_sign": "Добро пожаловать в админку",
+    "copyright": "Token Reference",
+
+    "theme": "darkly",
+
+    "icons": {
+        "main.Token": "fas fa-key",
+        "main.Post": "fas fa-book",
+    },
+
+    "show_sidebar": True,
+    "navigation_expanded": True,
+
+    "order_with_respect_to": ["main", "auth"],
+
+    "custom_links": {
+        "main": [{
+            "name": "Сайт",
+            "url": "/",
+            "icon": "fas fa-globe",
+            "permissions": ["main.view_post"],
+        }]
+    },
+    "show_ui_builder": False,
+    "show_sidebar": True,
+    "navigation_expanded": True,
+
+
+}
