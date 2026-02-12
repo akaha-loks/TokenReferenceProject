@@ -14,10 +14,6 @@
             {{ post.content|linebreaks }}
         </p>
 
-        {% if post.image %}
-            <img src="{{ post.image.url }}" alt="Скриншот">
-        {% endif %}
-
         {% if post.driver_link %}
             <p>
                 <a class="btn" href="{{ post.driver_link }}" target="_blank">

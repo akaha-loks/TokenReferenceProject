@@ -3,9 +3,35 @@ from django.utils.html import format_html
 from django.contrib.auth.models import Group
 from django.db.models import Q
 import re
-from .models import Post
+from .models import Post, Token
 
 admin.site.unregister(Group)
+
+
+
+class PostInline(admin.TabularInline):
+    model = Post
+    extra = 1
+    fields = ('title', 'created_at')
+    readonly_fields = ('created_at',)
+    show_change_link = True
+
+
+@admin.register(Token)
+class TokenAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description_short', 'posts_count')
+    search_fields = ('name', 'description')
+    inlines = [PostInline]
+
+    def description_short(self, obj):
+        if obj.description:
+            return obj.description[:80] + ('...' if len(obj.description) > 80 else '')
+        return '—'
+    description_short.short_description = 'Описание'
+
+    def posts_count(self, obj):
+        return obj.posts.count()
+    posts_count.short_description = 'Инструкций'
 
 
 @admin.register(Post)
