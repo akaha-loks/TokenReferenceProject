@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Справочник токенов{% endblock %}
+
+{% block content %}
+<section style="text-align:center; padding:60px 20px;">
+    <h2 style="font-size:32px; margin-bottom:15px;">
+        Справочник токенов и драйверов
+    </h2>
+
+    <p style="font-size:18px; color:#7f8c8d; max-width:700px; margin:0 auto 30px;">
+        Удобный каталог инструкций по установке драйверов,
+        настройке и работе с аппаратными токенами.
+    </p>
+
+    <a href="{% url 'post_list' %}" class="btn" style="font-size:16px; padding:14px 24px;">
+        Перейти к инструкциям
+    </a>
+</section>
+
+<hr style="margin:60px 0; border:none; border-top:1px solid #eee;">
+
+<section>
+    <h3>Доступные токены</h3>
+
+    <div class="card-grid">
+        {% for token in tokens %}
+            <div class="card">
+                <h4 style="margin:0;">{{ token.name }}</h4>
+                <p style="color:#7f8c8d; font-size:14px;">
+                    Инструкции по установке и настройке
+                </p>
+                <a href="{% url 'post_list_by_token' token.id %}" class="btn">
+                    Смотреть инструкции
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<hr style="margin:60px 0; border:none; border-top:1px solid #eee;">
+
+<section style="text-align:center;">
+    <h3>Всего инструкций: {{ posts_count }}</h3>
+    <p style="color:#7f8c8d;">
+        База постоянно обновляется и расширяется.
+    </p>
+</section>
+{% endblock %}

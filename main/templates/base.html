@@ -222,8 +222,17 @@
 <body>
 
 <header>
-    <h1>Справочник токенов и драйверов</h1>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h1>
+            <a href="{% url 'welcome' %}" style="color:white; text-decoration:none;">
+                Справочник токенов и драйверов
+            </a>
+        </h1>
+
+        <a href="{% url 'post_list' %}" class="btn">Инструкции</a>
+    </div>
 </header>
+
 
 <main>
     {% block content %}{% endblock %}
