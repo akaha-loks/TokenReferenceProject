@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abb7830c-aebc-41d4-a0a7-2895ddb3fe02" name="Changes" comment="Deploy #2.2">
+    <list default="true" id="abb7830c-aebc-41d4-a0a7-2895ddb3fe02" name="Changes" comment="Added cloudinary">
+      <change afterPath="$PROJECT_DIR$/main/management/commands/migrate_images_to_cloudinary.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TokenReference/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TokenReference/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -85,7 +87,7 @@
       <workItem from="1769431270954" duration="2000" />
       <workItem from="1770889533868" duration="446000" />
       <workItem from="1770898801637" duration="1509000" />
-      <workItem from="1770974209366" duration="1063000" />
+      <workItem from="1770974209366" duration="1742000" />
     </task>
     <task id="LOCAL-00001" summary="Added ckeditor for admins. And added posts.">
       <option name="closed" value="true" />
@@ -119,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770973305909</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added cloudinary">
+      <option name="closed" value="true" />
+      <created>1770975359260</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770975359260</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +151,8 @@
     <MESSAGE value="Deploy" />
     <MESSAGE value="Deploy #2" />
     <MESSAGE value="Deploy #2.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deploy #2.2" />
+    <MESSAGE value="Added cloudinary" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added cloudinary" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TokenReference$settings.coverage" NAME="settings Coverage Results" MODIFIED="1770478649689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TokenReference" />
