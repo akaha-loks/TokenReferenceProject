@@ -3,10 +3,10 @@ from django.utils.html import format_html
 from django.contrib.auth.models import Group
 from django.db.models import Q
 import re
+
 from .models import Post, Token
 
 admin.site.unregister(Group)
-
 
 
 class PostInline(admin.TabularInline):
@@ -71,9 +71,13 @@ class PostAdmin(admin.ModelAdmin):
     def preview(self, obj):
         if not obj or not obj.image:
             return '—'
+
+        # Работает и с Cloudinary, и с локальным storage
+        url = getattr(obj.image, 'url', None) or str(obj.image)
+
         return format_html(
             '<img src="{}" style="height:60px; border-radius:6px;" />',
-            obj.image.url
+            url
         )
 
     preview.short_description = 'Обложка'
