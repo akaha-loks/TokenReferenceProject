@@ -59,7 +59,7 @@
                 Токен: {{ post.token.name }}
             </div>
 
-            <p>{{ post.content|truncatechars:220 }}</p>
+            <p>{{ post.content|striptags|truncatechars:220|safe }}</p>
 
             <div class="post-actions">
                 <a class="btn" href="{% url 'post_detail' post.id %}">

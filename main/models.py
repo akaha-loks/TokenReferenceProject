@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Token(models.Model):
@@ -30,7 +31,7 @@ class Post(models.Model):
         'Заголовок',
         max_length=200
     )
-    content = models.TextField(
+    content = RichTextUploadingField(
         'Текст инструкции'
     )
     image = models.ImageField(

@@ -10,9 +10,9 @@
             Токен: {{ post.token.name }}
         </div>
 
-        <p>
-            {{ post.content|linebreaks }}
-        </p>
+        <div class="post-content">
+            {{ post.content|safe }}
+        </div>
 
         {% if post.driver_link %}
             <p>
