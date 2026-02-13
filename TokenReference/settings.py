@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'main.apps.MainConfig',
 ]
 
@@ -120,7 +123,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'post_list'
@@ -157,6 +160,20 @@ JAZZMIN_SETTINGS = {
     "show_ui_builder": False,
     "show_sidebar": True,
     "navigation_expanded": True,
+}
 
+CKEDITOR_UPLOAD_PATH = "instruction_images/"
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 350,
+        'width': 600,
+        'toolbar': [
+            ['Format'],
+            ['Bold', 'Italic'],
+            ['NumberedList', 'BulletedList'],
+            ['Link'],
+            ['Image'],
+        ],
+    },
 }
