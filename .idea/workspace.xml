@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abb7830c-aebc-41d4-a0a7-2895ddb3fe02" name="Changes" comment="Load image for admin panel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="abb7830c-aebc-41d4-a0a7-2895ddb3fe02" name="Changes" comment="Load image for admin panel #2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +85,7 @@
       <workItem from="1770898801637" duration="1509000" />
       <workItem from="1770974209366" duration="1742000" />
       <workItem from="1770985615657" duration="1987000" />
+      <workItem from="1771053948929" duration="689000" />
     </task>
     <task id="LOCAL-00001" summary="Added ckeditor for admins. And added posts.">
       <option name="closed" value="true" />
@@ -176,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770986862640</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Load image for admin panel #2">
+      <option name="closed" value="true" />
+      <created>1771054192109</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1771054192109</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +212,8 @@
     <MESSAGE value="Fixed images and load style for admin panel" />
     <MESSAGE value="Load style for admin panel" />
     <MESSAGE value="Load image for admin panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Load image for admin panel" />
+    <MESSAGE value="Load image for admin panel #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Load image for admin panel #2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TokenReference$settings.coverage" NAME="settings Coverage Results" MODIFIED="1770478649689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TokenReference" />
