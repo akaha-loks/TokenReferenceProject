@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from cloudinary.models import CloudinaryField
 
 
 class Token(models.Model):
@@ -34,12 +35,7 @@ class Post(models.Model):
     content = RichTextUploadingField(
         'Текст инструкции'
     )
-    image = models.ImageField(
-        'Обложка',
-        upload_to='posts/',
-        blank=True,
-        null=True
-    )
+    image = CloudinaryField('Обложка', blank=True, null=True)
     driver_link = models.URLField(
         'Ссылка на драйвер',
         blank=True
