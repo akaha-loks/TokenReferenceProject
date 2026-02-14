@@ -1,7 +1,3 @@
-"""
-Django settings for TokenReferenceProject project.
-"""
-
 from pathlib import Path
 import os
 import cloudinary
@@ -9,11 +5,8 @@ import cloudinary
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-ru)x29uv0=m=qzdv^o+r87)@(kplu)o#(gg*$^67g=&_1j(xw='
-
 DEBUG = False
-
 ALLOWED_HOSTS = ["token-reference.onrender.com"]
-
 
 INSTALLED_APPS = [
     "jazzmin",
@@ -30,10 +23,9 @@ INSTALLED_APPS = [
     'cloudinary_storage',
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # 👈 обязательно
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # статические файлы админки
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -42,9 +34,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'TokenReference.urls'
-
 
 TEMPLATES = [
     {
@@ -61,9 +51,7 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'TokenReference.wsgi.application'
-
 
 DATABASES = {
     'default': {
@@ -72,7 +60,6 @@ DATABASES = {
     }
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -80,80 +67,29 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
 LANGUAGE_CODE = 'ru'
 TIME_ZONE = 'Asia/Bishkek'
-
 USE_I18N = True
 USE_TZ = True
-
 
 # =========================
 # STATIC FILES (админка)
 # =========================
-
 STATIC_URL = '/static/'
-
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 # =========================
 # MEDIA (Cloudinary)
 # =========================
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-# =========================
-# AUTH
-# =========================
-
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'post_list'
-LOGOUT_REDIRECT_URL = 'welcome'
-
-
-# =========================
-# JAZZMIN
-# =========================
-
-JAZZMIN_SETTINGS = {
-    "site_title": "Token Reference",
-    "site_header": "Token Reference",
-    "site_brand": "TokenReference",
-    "welcome_sign": "Добро пожаловать в админку",
-    "copyright": "Token Reference",
-    "theme": "darkly",
-    "icons": {
-        "main.Token": "fas fa-key",
-        "main.Post": "fas fa-book",
-    },
-    "show_sidebar": True,
-    "navigation_expanded": True,
-    "order_with_respect_to": ["main", "auth"],
-    "custom_links": {
-        "main": [{
-            "name": "Сайт",
-            "url": "/",
-            "icon": "fas fa-globe",
-            "permissions": ["main.view_post"],
-        }]
-    },
-    "show_ui_builder": False,
-}
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'  # для CKEditor
 
 # =========================
 # CKEDITOR
 # =========================
-
 CKEDITOR_UPLOAD_PATH = "instruction_images/"
-
 CKEDITOR_CONFIGS = {
     'default': {
         'height': 350,
@@ -168,16 +104,33 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-
 # =========================
-# CLOUDINARY
+# Cloudinary config
 # =========================
-
 cloudinary.config(
     cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
     api_key=os.getenv('CLOUDINARY_API_KEY'),
     api_secret=os.getenv('CLOUDINARY_API_SECRET')
 )
 
+# =========================
+# Auth
+# =========================
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'post_list'
+LOGOUT_REDIRECT_URL = 'welcome'
+
+# Jazzmin
+JAZZMIN_SETTINGS = {
+    "site_title": "Token Reference",
+    "site_header": "Token Reference",
+    "site_brand": "TokenReference",
+    "welcome_sign": "Добро пожаловать в админку",
+    "theme": "darkly",
+    "icons": {
+        "main.Token": "fas fa-key",
+        "main.Post": "fas fa-book",
+    },
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

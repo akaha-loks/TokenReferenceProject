@@ -48,32 +48,12 @@ class PostAdmin(admin.ModelAdmin):
         ('Ссылки и даты', {'fields': ('driver_link', 'created_at')}),
     )
 
-    def get_search_results(self, request, queryset, search_term):
-        if search_term:
-            search_term = re.sub(r'[^\w\s]', '', search_term)
-            words = search_term.split()
-
-            query = Q()
-            for word in words:
-                word_lower = word.lower()
-                query |= Q(title__icontains=word_lower) \
-                         | Q(content__icontains=word_lower) \
-                         | Q(token__name__icontains=word_lower)
-
-                query |= Q(title__iregex=word) \
-                         | Q(content__iregex=word) \
-                         | Q(token__name__iregex=word)
-
-            queryset = queryset.filter(query)
-
-        return queryset, False
-
     def preview(self, obj):
         if not obj or not obj.image:
             return '—'
 
-        # Работает и с Cloudinary, и с локальным storage
-        url = getattr(obj.image, 'url', None) or str(obj.image)
+        # Берём URL напрямую из Cloudinary
+        url = obj.image.url if hasattr(obj.image, 'url') else str(obj.image)
 
         return format_html(
             '<img src="{}" style="height:60px; border-radius:6px;" />',
